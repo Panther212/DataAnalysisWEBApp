@@ -142,10 +142,10 @@ def Calculate_FFT(sig_data):
    
    
 
-Data = Data_Preprocess(dict_json)
-# print("Data is ",Data)
-Filtered_data = Apply_Filter(Data)
-plt.savefig("output.jpg")
+# Data = Data_Preprocess(dict_json)
+# # print("Data is ",Data)
+# Filtered_data = Apply_Filter(Data)
+# plt.savefig("output.jpg")
 
 
 
