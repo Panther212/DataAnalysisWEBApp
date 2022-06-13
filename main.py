@@ -23,18 +23,18 @@ import json
 # result = response['Body'].read()
 # print("Result is",result)
 #retrieve json file from firebase
-firebase = firebase.FirebaseApplication('https://esp32-d544d-default-rtdb.firebaseio.com/',None)
-result = firebase.get("test","sensor")
-result1 = firebase.get("test","scan_number")
-Np_result = np.array(result)
-df = pd.DataFrame(Np_result)
-df.to_csv( "scan.csv")
+# firebase = firebase.FirebaseApplication('https://esp32-d544d-default-rtdb.firebaseio.com/',None)
+# result = firebase.get("test","sensor")
+# result1 = firebase.get("test","scan_number")
+# Np_result = np.array(result)
+# df = pd.DataFrame(Np_result)
+# df.to_csv( "scan.csv")
 
 
 
-jtopy=json.dumps(result)       #json.dumps take a dictionary as input and returns a string as output.
-dict_json=json.loads(jtopy)    # json.loads take a string as input and returns a dictionary as output.
-# print(dict_json)
+# jtopy=json.dumps(result)       #json.dumps take a dictionary as input and returns a string as output.
+# dict_json=json.loads(jtopy)    # json.loads take a string as input and returns a dictionary as output.
+# # print(dict_json)
 
 # Digital Filter starts from here
 def Data_Preprocess(x):
@@ -178,17 +178,17 @@ if a == "Farm Information":
 #      * Remark      :        {Remark}
 #  """
 #   )
- st.subheader(f'Scan number is: {result1}')
- #st.write("Scan number is ", result1)
- Plot_Graph(Filtered_data)	
- Calculate_FFT(Np_result)
- st.write(Np_result.shape)
- Calculate_DCT(Np_result)
- Calculate_DST(Np_result)
- Calculate_STFT2(Np_result)
- Calculate_Phase_Spectrum(Np_result)	
- #st.line_chart(Filtered_data, width=1000, height=0, use_container_width=False)
- st.write(df)
+#  st.subheader(f'Scan number is: {result1}')
+#  #st.write("Scan number is ", result1)
+#  Plot_Graph(Filtered_data)	
+#  Calculate_FFT(Np_result)
+#  st.write(Np_result.shape)
+#  Calculate_DCT(Np_result)
+#  Calculate_DST(Np_result)
+#  Calculate_STFT2(Np_result)
+#  Calculate_Phase_Spectrum(Np_result)	
+#  #st.line_chart(Filtered_data, width=1000, height=0, use_container_width=False)
+#  st.write(df)
  
 
 
@@ -201,18 +201,18 @@ if a == "Farm Information":
 # st.dataframe(df)
 
 
-@st.cache
-def convert_df(df):
- return df.to_csv().encode('utf-8')
-csv = convert_df(df)
+# @st.cache
+# def convert_df(df):
+#  return df.to_csv().encode('utf-8')
+# csv = convert_df(df)
 
-st.download_button(
-     "Press to Download",
-     csv,
-     "file.csv",
-     "text/csv",
-     key='download-csv'
- )
+# st.download_button(
+#      "Press to Download",
+#      csv,
+#      "file.csv",
+#      "text/csv",
+#      key='download-csv'
+#  )
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
