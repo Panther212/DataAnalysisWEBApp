@@ -217,7 +217,7 @@ if a == "Farm Information":
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
      dataframe = pd.read_csv(uploaded_file)
-     Narray = np.array(dataframe.iloc[:,[1]])
+     Narray = np.array(dataframe.iloc[:,[0]])
      Np_array = np.squeeze(Narray)
      st.write(Np_array)
 
@@ -229,10 +229,10 @@ if generate_graph_button:
 	Plot_Graph(filtered_array)
 	#st.write(Np_array)
 	Calculate_FFT(Np_array)
-# 	Calculate_DCT(Np_array)
-# 	Calculate_DST(Np_array)
-# 	Calculate_STFT2(Np_array)
-# 	Calculate_Phase_Spectrum(Np_array)
+	Calculate_DCT(Np_array)
+	Calculate_DST(Np_array)
+	Calculate_STFT2(Np_array)
+	Calculate_Phase_Spectrum(Np_array)
  # col1, col2= st.columns(2)
  #
  # with col1:
